@@ -1,0 +1,17 @@
+﻿<Window x:Class="CrewInfo.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Выбор рейса" Height="240" Width="450">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Добро пожаловать!" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="10 10 10 10"/>
+
+            <TextBlock Name="NameTextBlock" Text="Выберите:" FontSize="16" HorizontalAlignment="Center" Margin="10 0 0 5"/>
+
+            <Button x:Name="CrewInfoButton" Content="Пилоты" Width="120" Height="40" HorizontalAlignment="Left"
+                    Margin="70 20 0 0" Click="PilotsButton_Click" Background="White" BorderBrush="Black"/>
+            <Button x:Name="SelectSeatsButton" Content="Стюарты" Width="120" Height="40" HorizontalAlignment="Right"
+                    Margin="0 -40 70 0" Click="StewardsButton_Click" Background="White" BorderBrush="Black"/>
+        </StackPanel>
+    </Grid>
+</Window>
