@@ -56,30 +56,6 @@ namespace CrewInfo.Persistence.Repositories
             return _mapper.Map<Pilot>(pilot);
         }
 
-        public async Task<Pilot> GetPilotByName(string fullName)
-        {
-            var pilot = await _context.Pilots.FirstOrDefaultAsync(p => p.FullName == fullName)
-                ?? throw new ArgumentException("Пилот не найден");
-
-            return _mapper.Map<Pilot>(pilot);
-        }
-
-        public async Task<Pilot> GetPilotByPassport(string passportNumber)
-        {
-            var pilot = await _context.Pilots.FirstOrDefaultAsync(p => p.PassportNumber == passportNumber)
-                ?? throw new ArgumentException("Пилот не найден");
-
-            return _mapper.Map<Pilot>(pilot);
-        }
-
-        public async Task<Pilot> GetPilotByNumber(string mobileNumber)
-        {
-            var pilot = await _context.Pilots.FirstOrDefaultAsync(p => p.MobileNumber == mobileNumber)
-                ?? throw new ArgumentException("Пилот не найден");
-
-            return _mapper.Map<Pilot>(pilot);
-        }
-
         public async Task AddPilot(Pilot pilot)
         {
             var pilotEntity = _mapper.Map<PilotEntity>(pilot);

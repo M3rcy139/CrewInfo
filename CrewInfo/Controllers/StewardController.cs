@@ -17,7 +17,7 @@ namespace CrewInfo.Controllers
             _stewardRepository = stewardRepository;
         }
 
-        [HttpGet("get-all-steward")]
+        [HttpGet("get-all-stewards")]
         public async Task<IActionResult> GetAllStewards()
         {
             try
@@ -36,7 +36,7 @@ namespace CrewInfo.Controllers
             }
         }
 
-        [HttpGet("get-steward/{fullName}")]
+        [HttpGet("get-steward")]
         public async Task<IActionResult> GetSteward([FromQuery] string? fullName, [FromQuery] string? passportNumber,
             [FromQuery] string? mobileNumber)
         {
@@ -56,62 +56,6 @@ namespace CrewInfo.Controllers
             }
         }
 
-        [HttpGet("get-steward-name/{fullName}")]
-        public async Task<IActionResult> GetStewardByName(string fullName)
-        {
-            try
-            {
-                var steward = await _stewardRepository.GetStewardByName(fullName);
-
-                return Ok(steward);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(new { error = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
-            }
-        }
-
-        [HttpGet("get-steward-passport/{filter}")]
-        public async Task<IActionResult> GetStewardByPassport(string passportNumber)
-        {
-            try
-            {
-                var steward = await _stewardRepository.GetStewardByPassport(passportNumber);
-
-                return Ok(steward);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(new { error = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
-            }
-        }
-
-        [HttpGet("get-steward-number/{filter}")]
-        public async Task<IActionResult> GetStewardByNumber(string mobileNumber)
-        {
-            try
-            {
-                var steward = await _stewardRepository.GetStewardByNumber(mobileNumber);
-
-                return Ok(steward);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(new { error = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
-            }
-        }
 
         [HttpPost("add-steward")]
         public async Task<IActionResult> AddSteward(StewardRequest request)

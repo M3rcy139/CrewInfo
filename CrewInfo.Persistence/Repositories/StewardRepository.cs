@@ -56,30 +56,6 @@ namespace CrewInfo.Persistence.Repositories
             return _mapper.Map<Steward>(steward);
         }
 
-        public async Task<Steward> GetStewardByName(string fullName)
-        {
-            var steward = await _context.Stewards.FindAsync(fullName)
-                ?? throw new ArgumentException("Стюарт не найден");
-
-            return _mapper.Map<Steward>(steward);
-        }
-
-        public async Task<Steward> GetStewardByNumber(string mobileNumber)
-        {
-            var steward = await _context.Stewards.FindAsync(mobileNumber)
-                 ?? throw new ArgumentException("Стюарт не найден");
-
-            return _mapper.Map<Steward>(steward);
-        }
-
-        public async Task<Steward> GetStewardByPassport(string passportNumber)
-        {
-            var steward = await _context.Stewards.FindAsync(passportNumber)
-                ?? throw new ArgumentException("Стюарт не найден");
-
-            return _mapper.Map<Steward>(steward);
-        }
-
         public async Task AddSteward(Steward steward)
         {
             var stewardEntity = _mapper.Map<StewardEntity>(steward);

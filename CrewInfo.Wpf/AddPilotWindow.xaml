@@ -1,0 +1,64 @@
+﻿<Window x:Class="CrewInfo.Wpf.AddPilotWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить пилота" Height="650" Width="400"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="500" Margin="0 0 0 70">
+            <StackPanel>
+                <TextBlock Text="Добавить нового пилота" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                <TextBlock Text="ФИО" Margin="5 0 0 0"/>
+                <TextBox x:Name="FullNameInput" Margin="5"/>
+
+                <TextBlock Text="Адрес проживания" Margin="5 0 0 0"/>
+                <TextBox x:Name="ResidenceAddressInput" Margin="5"/>
+
+                <TextBlock Text="Мобильный телефон" Margin="5 0 0 0"/>
+                <TextBox x:Name="MobileNumberInput" Margin="5"/>
+
+                <TextBlock Text="Номер паспорта" Margin="5 0 0 0"/>
+                <TextBox x:Name="PassportNumberInput" Margin="5"/>
+
+                <TextBlock Text="Дата выдачи паспорта" Margin="5 0 0 0"/>
+                <DatePicker x:Name="PassportIssueDateInput" Margin="5"/>
+
+                <TextBlock Text="Паспорт выдан" Margin="5 0 0 0"/>
+                <TextBox x:Name="PassportIssuedByInput" Margin="5"/>
+
+                <TextBlock Text="Дата рождения" Margin="5 0 0 0"/>
+                <DatePicker x:Name="BirthDateInput" Margin="5"/>
+
+                <TextBlock Text="Адрес регистрации" Margin="5 0 0 0"/>
+                <TextBox x:Name="RegistrationAddressInput" Margin="5"/>
+
+                <TextBlock Text="ИНН" Margin="5 0 0 0"/>
+                <TextBox x:Name="InnNumberInput" Margin="5"/>
+
+                <TextBlock Text="Номер страхового полиса" Margin="5 0 0 0"/>
+                <TextBox x:Name="InsurancePolicyNumberInput" Margin="5"/>
+
+                <TextBlock Text="Семейное положение" Margin="5 0 0 0"/>
+                <TextBox x:Name="MaritalStatusInput" Margin="5"/>
+
+                <TextBlock Text="Налет часов" Margin="5 0 0 0"/>
+                <TextBox x:Name="FlightHoursInput" Margin="5"/>
+
+                <TextBlock Text="Квалификация" Margin="5 0 0 0"/>
+                <TextBox x:Name="QualificationInput" Margin="5"/>
+
+                <TextBlock Text="Место последней подготовки" Margin="5 0 0 0"/>
+                <TextBox x:Name="LastTrainingLocationInput" Margin="5"/>
+
+                <TextBlock Text="Дата последней подготовки" Margin="5 0 0 0"/>
+                <DatePicker x:Name="LastTrainingDateInput" Margin="5"/>
+
+                <TextBlock Text="Номер экипажа" Margin="5 0 0 0"/>
+                <TextBox x:Name="CrewNumberInput" Margin="5"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Content="Добавить пилота" Height="40" Width="150" Margin="0,0,0,25" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                Click="AddPilot_Click" Background="White"/>
+    </Grid>
+</Window>

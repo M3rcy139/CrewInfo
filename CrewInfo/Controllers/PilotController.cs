@@ -57,63 +57,6 @@ namespace CrewInfo.Controllers
             }
         }
 
-        [HttpGet("get-pilot-name/{fullName}")]
-        public async Task<IActionResult> GetPilotByName(string fullName)
-        {
-            try
-            {
-                var pilot = await _pilotRepository.GetPilotByName(fullName);
-
-                return Ok(pilot);
-            }
-            catch(ArgumentException ex)
-            {
-                return NotFound(new { error = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
-            }
-        }
-
-        [HttpGet("get-pilot-passport/{filter}")]
-        public async Task<IActionResult> GetPilotByPassport(string passportNumber)
-        {
-            try
-            {
-                var pilot = await _pilotRepository.GetPilotByPassport(passportNumber);
-
-                return Ok(pilot);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(new { error = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
-            }
-        }
-
-        [HttpGet("get-pilot-number/{filter}")]
-        public async Task<IActionResult> GetPilotByNumber(string mobileNumber)
-        {
-            try
-            {
-                var pilot = await _pilotRepository.GetPilotByNumber(mobileNumber);
-
-                return Ok(pilot);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(new { error = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { error = "An unexpected error occurred.", details = ex.Message });
-            }
-        }
-
         [HttpPost("add-pilot")]
         public async Task<IActionResult> AddPilot(PilotRequest request)
         {
